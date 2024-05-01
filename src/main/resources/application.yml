@@ -1,9 +1,50 @@
+server:
+  port: 8083
+spring:
+  application:
+    name: USER-SERVICE
+  config:
+    import: env.properties
+  jpa:
+    database: postgresql
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+    userservice:
+      url: ${USER_DB_URL}
+      username: ${DB_USER}
+      password: ${DB_PASSWORD}
+      driverClassName: org.postgresql.Driver
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${email-id}
+    password: ${email-password}
+    smtp:
+      auth: true
+      startttls:
+        enable: true
+
 eureka:
   instance:
-    hostname: localhost
+    prefer-ip-address: true
   client:
-    register-with-eureka: false
-    fetch-registry: false
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: ${service-url}
 
-server:
-  port: 8081
+
+
+userservice:
+  twilioAuthToken: ${TWILIO_AUTH_TOKEN}
+  twilioVerifySid: ${TWILIO_VERIFY_SID}
+  twilioAccountSid: ${TWILIO_ACCOUNT_SID}
+  rapidApiGroupId: ${RAPID_API_GROUP_ID}
+  rapidApiKey: ${RAPID_API_KEY}
+  rapidApiTaskId: ${RAPID_API_TASK_ID}
+  aadhaarClientId: ${AADHAAR_CLIENT_ID}
+  aadhaarClientSecret: ${AADHAAR_CLIENT_SECRET}

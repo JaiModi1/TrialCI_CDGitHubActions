@@ -1,8 +1,10 @@
 HELP.md
 target/
+.dockerignore
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+*.properties
 .mvnw
 mvnw.cmd
 .idea/
