@@ -33,9 +33,9 @@ jobs:
     - uses: mr-smithers-excellent/docker-build-push@v6
       name: Build & push Docker image
       with:
-        image: jaimodi/priv_docker_repo
+        image: attempt
         tags: v1, latest
-        registry: registry-url.io
+        registry: jaimodi/priv_docker_repo
         dockerfile: Dockerfile.ci
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
