@@ -24,6 +24,7 @@ public class DatabaseInitialization implements CommandLineRunner {
         businessDocumentService.initializeDatabase();
         msmeUserDocumentService.initializeDatabase();
         msmeUserDetailsService.initializeDatabase();
+        System.out.println("abcd");
     }
 
 }
