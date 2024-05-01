@@ -33,7 +33,7 @@ jobs:
     - uses: mr-smithers-excellent/docker-build-push@v6
       name: Build & push Docker image
       with:
-        image: attempt
+        image: jaimodi/priv_docker_repo/attempt:latest
         tags: latest
         registry: docker.io/priv_docker_repo
         dockerfile: Dockerfile
