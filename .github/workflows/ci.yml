@@ -35,7 +35,7 @@ jobs:
       with:
         image: priv_docker_repo/attempt
         tags: latest
-        registry: docker.io/jaimodi/priv_docker_repo
+        registry: docker.io/jaimodi
         dockerfile: Dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
