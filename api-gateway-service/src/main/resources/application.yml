@@ -1,0 +1,51 @@
+server:
+  port: 8082
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        opaque-token:
+          introspection-uri: ${INTROSPECTION_URI}
+          client-id: ${CLIENT_ID}
+          client-secret: ${CLIENT_SECRET}
+
+  application:
+    name: API-GATEWAY
+
+  config:
+    import: env.properties
+  main:
+    web-application-type: reactive
+
+  cloud:
+    gateway:
+      default-filters:
+        - DataTransferFilter
+      routes:
+        - id: USER-SERVICE
+          uri: ${USER_SERVICE_URI}
+          predicates:
+            - Path=/api/user/**
+        - id: LOAN-SERVICE
+          uri: ${LOAN_SERVICE_URI}
+          predicates:
+            - Path=/api/loan/**
+        - id: BRE-SERVICE
+          uri: ${BRE_SERVICE_URI}
+          predicates:
+            - Path=/api/bre/**
+
+
+gatewayservice:
+  issuer: ${ISSUER-URI}
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: ${SERVICE_URL}
+
